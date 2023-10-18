@@ -1,17 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class BatterySystem : MonoBehaviour
 {
-
     public float timeRemaning3BatteryLevel;
     public float timeRemaning2BatteryLevel;
     public float timeRemaning1BatteryLevel;
 
     private float timeRemaining = 0.0f;
     private float timeFlicker = 0.0f;
-    public float flickerDuration = 0.075f;
+    private float flickerInterval = 0.1f;
+    private float flickerIntensity = 0f;
 
     private bool timeDecrementBatteryLvl3 = false;
     private bool timeDecrementBatteryLvl2 = false;
@@ -21,7 +22,7 @@ public class BatterySystem : MonoBehaviour
     private bool decrementedMaxIntensityBatteryLvl2 = false;
     private bool decrementedMaxIntensityBatteryLvl1 = false;
 
-    // Update is called once per frame
+
     void Update()
     {
         timeRemaining += Time.deltaTime;
@@ -43,7 +44,6 @@ public class BatterySystem : MonoBehaviour
             timeDecrementBatteryLvl1 = true;
         }
 
-
         if (GameVariablesLight.maxIntensity == 3 && !decrementedMaxIntensityBatteryLvl3)
         {
             GameVariablesLight.spotlightChild.intensity = 2;
@@ -60,12 +60,6 @@ public class BatterySystem : MonoBehaviour
             decrementedMaxIntensityBatteryLvl1 = true;
         }
 
-        /*if (timeFlicker >= flickerDuration)
-        {
-            GameVariablesLight.spotlightChild.intensity = Random.Range(GameVariablesLight.spotlightChild.intensity, GameVariablesLight.spotlightChild.intensity + 0.5f);
-            timeFlicker = 0;
-        }*/
-
         if (GameVariablesLight.isResetTimeNeedeed)
         {
             GameVariablesLight.isResetTimeNeedeed = false;
@@ -78,5 +72,22 @@ public class BatterySystem : MonoBehaviour
             decrementedMaxIntensityBatteryLvl1 = false;
         }
 
+        if (timeFlicker >= flickerInterval)
+        {
+            timeFlicker = 0;
+            FlickerIntensity();
+        }
+    }
+
+    void FlickerIntensity()
+    {
+        if (GameVariablesLight.spotlightChild.intensity > 0)
+        {
+            float randomFactor = Random.Range(0.9f, 1.1f);
+
+            flickerIntensity = GameVariablesLight.spotlightChild.intensity * randomFactor;
+
+            GameVariablesLight.spotlightChild.intensity = flickerIntensity;
+        }
     }
 }
