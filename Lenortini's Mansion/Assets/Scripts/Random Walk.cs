@@ -77,4 +77,9 @@ public class RandomWalk : MonoBehaviour
 
         //IsPosSet = true;
     }
+
+    void SetStopped()
+    {
+        ghost.isStopped = true;
+    }
 }

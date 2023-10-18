@@ -26,7 +26,8 @@ public class FlashLightRayCaster : MonoBehaviour
         {
             if(hit.collider.CompareTag("Ghost"))
             {
-                Debug.Log("Kill ghost");
+                /*Debug.Log("Kill ghost");*/
+                hit.transform.gameObject.GetComponent<Animator>().SetTrigger("Killed");
             }
             
             

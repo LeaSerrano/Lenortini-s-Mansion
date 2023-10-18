@@ -373,6 +373,7 @@
 "Assets/Scripts/DoorOpener.cs"
 "Assets/Scripts/DoorTeleporter.cs"
 "Assets/Scripts/FlashLightRayCaster.cs"
+"Assets/Scripts/GhostKill.cs"
 "Assets/Scripts/HealthUIController.cs"
 "Assets/Scripts/PlayerHealth.cs"
 "Assets/Scripts/Random Walk.cs"
