@@ -21,12 +21,8 @@ public class BatteryGrab : MonoBehaviour
         {
             if (GameVariablesLight.maxIntensity < 4)
             {
-                Debug.Log(GameVariablesLight.maxIntensity);
-                GameVariablesLight.spotlightChild.intensity += 5 - GameVariablesLight.maxIntensity;
-                Debug.Log(GameVariablesLight.spotlightChild.intensity);
-                Debug.Log(5 - GameVariablesLight.maxIntensity);
-                GameVariablesLight.maxIntensity = 3 - GameVariablesLight.maxIntensity;
-                Debug.Log(GameVariablesLight.maxIntensity);
+                GameVariablesLight.spotlightChild.intensity = 3;
+                GameVariablesLight.maxIntensity = 4;
                 GameVariablesLight.isABatteryGrab = false;
                 GameVariablesLight.isResetTimeNeedeed = true;
                 Destroy(actualBattery);

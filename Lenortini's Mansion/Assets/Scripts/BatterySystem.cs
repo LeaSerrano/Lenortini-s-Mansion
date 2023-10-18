@@ -5,7 +5,7 @@ using UnityEngine;
 public class BatterySystem : MonoBehaviour
 {
 
-    /*public float timeRemaning3BatteryLevel;
+    public float timeRemaning3BatteryLevel;
     public float timeRemaning2BatteryLevel;
     public float timeRemaning1BatteryLevel;
 
@@ -70,5 +70,5 @@ public class BatterySystem : MonoBehaviour
             decrementedMaxIntensityBatteryLvl1 = false;
         }
 
-    }*/
+    }
 }
