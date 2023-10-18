@@ -4,28 +4,26 @@ using UnityEngine;
 
 public class BatteryGrab : MonoBehaviour
 {
-    public GameObject actualBattery;
-
+    bool isInCollider = false;
     public void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
             Debug.Log("Press E to get Battery");
-            GameVariablesLight.isABatteryGrab = true;
+            isInCollider = true;
         }
     }
 
     public void Update()
     {
-        if (GameVariablesLight.isABatteryGrab && Input.GetKey("e"))
+        if (isInCollider && Input.GetKey("e"))
         {
             if (GameVariablesLight.maxIntensity < 4)
             {
                 GameVariablesLight.spotlightChild.intensity = 3;
                 GameVariablesLight.maxIntensity = 4;
-                GameVariablesLight.isABatteryGrab = false;
                 GameVariablesLight.isResetTimeNeedeed = true;
-                Destroy(actualBattery);
+                Destroy(gameObject);
             }
             else
             {

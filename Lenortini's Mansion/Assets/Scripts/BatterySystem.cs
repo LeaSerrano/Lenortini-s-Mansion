@@ -10,6 +10,8 @@ public class BatterySystem : MonoBehaviour
     public float timeRemaning1BatteryLevel;
 
     private float timeRemaining = 0.0f;
+    private float timeFlicker = 0.0f;
+    public float flickerDuration = 0.075f;
 
     private bool timeDecrementBatteryLvl3 = false;
     private bool timeDecrementBatteryLvl2 = false;
@@ -23,7 +25,7 @@ public class BatterySystem : MonoBehaviour
     void Update()
     {
         timeRemaining += Time.deltaTime;
-        //Debug.Log(timeRemaining);
+        timeFlicker += Time.deltaTime;
 
         if (timeRemaining > timeRemaning3BatteryLevel && timeRemaining < timeRemaning3BatteryLevel + 0.5f && !timeDecrementBatteryLvl3)
         {
@@ -57,6 +59,12 @@ public class BatterySystem : MonoBehaviour
             GameVariablesLight.spotlightChild.intensity = 0;
             decrementedMaxIntensityBatteryLvl1 = true;
         }
+
+        /*if (timeFlicker >= flickerDuration)
+        {
+            GameVariablesLight.spotlightChild.intensity = Random.Range(GameVariablesLight.spotlightChild.intensity, GameVariablesLight.spotlightChild.intensity + 0.5f);
+            timeFlicker = 0;
+        }*/
 
         if (GameVariablesLight.isResetTimeNeedeed)
         {
