@@ -41,7 +41,7 @@ public class RandomWalk : MonoBehaviour
     {   
         if(activatedHitTimer && hitTimer >= 0){ // Si le hit timer est activé et >= 0
             hitTimer -= Time.deltaTime; // Diminue le temps
-            Debug.Log("hitTimer : "+ hitTimer);
+            //Debug.Log("hitTimer : "+ hitTimer);
         } 
         if(hitTimer <= 0){ // Si le hit timer est <= 0
             activatedHitTimer = false; // Désactivation du timer
