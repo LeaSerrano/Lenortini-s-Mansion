@@ -5,13 +5,28 @@ using UnityEngine;
 public class BatteryGrab : MonoBehaviour
 {
     public GameObject actualBattery;
+    private UIInteractionObjectUser uiInteractionObjectUser;
+
+    public void Start()
+    {
+        uiInteractionObjectUser = GameObject.FindObjectOfType<UIInteractionObjectUser>();
+    }
 
     public void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
             Debug.Log("Press E to get Battery");
+            uiInteractionObjectUser.ShowInteractionText(UIInteractionObjectUser.typeObjet.batterie);
             GameVariablesLight.isABatteryGrab = true;
+        }
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            uiInteractionObjectUser.HideInteractionText();
         }
     }
 
