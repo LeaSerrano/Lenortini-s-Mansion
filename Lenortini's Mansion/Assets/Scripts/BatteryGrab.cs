@@ -30,6 +30,8 @@ public class BatteryGrab : MonoBehaviour
                 Debug.Log("The battery is full");
             }
 
+            isInCollider = false;
+
         }
     }
 }

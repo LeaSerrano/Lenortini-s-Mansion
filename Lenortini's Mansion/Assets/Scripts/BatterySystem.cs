@@ -9,6 +9,10 @@ public class BatterySystem : MonoBehaviour
     public float timeRemaning2BatteryLevel;
     public float timeRemaning1BatteryLevel;
 
+    public GameObject ui_battery_1;
+    public GameObject ui_battery_2;
+    public GameObject ui_battery_3;
+
     private float timeRemaining = 0.0f;
     private float timeFlicker = 0.0f;
     private float flickerInterval = 0.1f;
@@ -25,6 +29,31 @@ public class BatterySystem : MonoBehaviour
 
     void Update()
     {
+        if (GameVariablesLight.maxIntensity == 4)
+        {
+            ui_battery_1.SetActive(true);
+            ui_battery_2.SetActive(true);
+            ui_battery_3.SetActive(true);
+        }
+        else if (GameVariablesLight.maxIntensity == 3)
+        {
+            ui_battery_1.SetActive(true);
+            ui_battery_2.SetActive(true);
+            ui_battery_3.SetActive(false);
+        }
+        else if (GameVariablesLight.maxIntensity == 2)
+        {
+            ui_battery_1.SetActive(true);
+            ui_battery_2.SetActive(false);
+            ui_battery_3.SetActive(false);
+        }
+        else if (GameVariablesLight.maxIntensity == 1)
+        {
+            ui_battery_1.SetActive(false);
+            ui_battery_2.SetActive(false);
+            ui_battery_3.SetActive(false);
+        }
+
         timeRemaining += Time.deltaTime;
         timeFlicker += Time.deltaTime;
 
