@@ -377,6 +377,7 @@
 "Assets/Scripts/GameVariablesLight.cs"
 "Assets/Scripts/GhostKill.cs"
 "Assets/Scripts/HealthUIController.cs"
+"Assets/Scripts/Knockback.cs"
 "Assets/Scripts/PlayerHealth.cs"
 "Assets/Scripts/Random Walk.cs"
 "Assets/Scripts/UIInteractionObjectUser.cs"

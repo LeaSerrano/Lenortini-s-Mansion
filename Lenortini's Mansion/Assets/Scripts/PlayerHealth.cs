@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour
     private int currentHealth;
     [SerializeField]
     private int maxHealth;
+    public Material blurMaterial;
 
     public static PlayerHealth Instance;
 
@@ -35,6 +36,11 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth <= 0)
             Debug.Log("Défaite");
         // defaite (TO DO)
+    }
+
+    private IEnumerator BlurEffect()
+    {
+        yield return new WaitForSeconds(2.0f);
     }
 
     public int GetCurrentHealth() { return currentHealth; }
