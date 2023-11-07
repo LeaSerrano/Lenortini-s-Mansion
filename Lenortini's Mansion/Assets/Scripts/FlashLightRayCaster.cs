@@ -19,6 +19,7 @@ public class FlashLightRayCaster : MonoBehaviour
             {
                 isTheGhostHit = true;
                 hit.transform.gameObject.GetComponent<Animator>().SetTrigger("Killed");
+                GameManager.enemyNumber --;
             }
         }
     }
