@@ -29,25 +29,25 @@ public class BatterySystem : MonoBehaviour
 
     void Update()
     {
-        if (GameVariablesLight.maxIntensity == 4)
+        if (GameVariablesLight.maxIntensity == 3)
         {
             ui_battery_1.SetActive(true);
             ui_battery_2.SetActive(true);
             ui_battery_3.SetActive(true);
         }
-        else if (GameVariablesLight.maxIntensity == 3)
+        else if (GameVariablesLight.maxIntensity == 2)
         {
             ui_battery_1.SetActive(true);
             ui_battery_2.SetActive(true);
             ui_battery_3.SetActive(false);
         }
-        else if (GameVariablesLight.maxIntensity == 2)
+        else if (GameVariablesLight.maxIntensity == 1)
         {
             ui_battery_1.SetActive(true);
             ui_battery_2.SetActive(false);
             ui_battery_3.SetActive(false);
         }
-        else if (GameVariablesLight.maxIntensity == 1)
+        else if (GameVariablesLight.maxIntensity == 0)
         {
             ui_battery_1.SetActive(false);
             ui_battery_2.SetActive(false);
@@ -59,31 +59,31 @@ public class BatterySystem : MonoBehaviour
 
         if (timeRemaining > timeRemaning3BatteryLevel && timeRemaining < timeRemaning3BatteryLevel + 0.5f && !timeDecrementBatteryLvl3)
         {
-            GameVariablesLight.maxIntensity = 3;
+            GameVariablesLight.maxIntensity = 2;
             timeDecrementBatteryLvl3 = true;
         }
         else if (timeRemaining > timeRemaning2BatteryLevel && timeRemaining < timeRemaning2BatteryLevel + 0.5f && !timeDecrementBatteryLvl2)
         {
-            GameVariablesLight.maxIntensity = 2;
+            GameVariablesLight.maxIntensity = 1;
             timeDecrementBatteryLvl2 = true;
         }
         else if (timeRemaining > timeRemaning1BatteryLevel && timeRemaining < timeRemaning1BatteryLevel + 0.5f && !timeDecrementBatteryLvl1)
         {
-            GameVariablesLight.maxIntensity = 1;
+            GameVariablesLight.maxIntensity = 0;
             timeDecrementBatteryLvl1 = true;
         }
 
-        if (GameVariablesLight.maxIntensity == 3 && !decrementedMaxIntensityBatteryLvl3)
+        if (GameVariablesLight.maxIntensity == 2 && !decrementedMaxIntensityBatteryLvl3)
         {
             GameVariablesLight.spotlightChild.intensity = 2;
             decrementedMaxIntensityBatteryLvl3 = true;
         }
-        else if (GameVariablesLight.maxIntensity == 2 && !decrementedMaxIntensityBatteryLvl2)
+        else if (GameVariablesLight.maxIntensity == 1 && !decrementedMaxIntensityBatteryLvl2)
         {
             GameVariablesLight.spotlightChild.intensity = 1;
             decrementedMaxIntensityBatteryLvl2 = true;
         }
-        else if (GameVariablesLight.maxIntensity == 1 && !decrementedMaxIntensityBatteryLvl1)
+        else if (GameVariablesLight.maxIntensity == 0 && !decrementedMaxIntensityBatteryLvl1)
         {
             GameVariablesLight.spotlightChild.intensity = 0;
             decrementedMaxIntensityBatteryLvl1 = true;
@@ -113,10 +113,13 @@ public class BatterySystem : MonoBehaviour
         if (GameVariablesLight.spotlightChild.intensity > 0)
         {
             float randomFactor = Random.Range(0.9f, 1.1f);
-
             flickerIntensity = GameVariablesLight.spotlightChild.intensity * randomFactor;
 
-            GameVariablesLight.spotlightChild.intensity = flickerIntensity;
+            if (flickerIntensity < GameVariablesLight.maxIntensity)
+            {
+                GameVariablesLight.spotlightChild.intensity = flickerIntensity;
+            }
         }
     }
+
 }

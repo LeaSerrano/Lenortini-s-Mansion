@@ -34,10 +34,10 @@ public class BatteryGrab : MonoBehaviour
     {
         if (isInCollider && Input.GetKey("e"))
         {
-            if (GameVariablesLight.maxIntensity < 4)
+            if (GameVariablesLight.maxIntensity < 3)
             {
                 GameVariablesLight.spotlightChild.intensity = 3;
-                GameVariablesLight.maxIntensity = 4;
+                GameVariablesLight.maxIntensity = 3;
                 GameVariablesLight.isResetTimeNeedeed = true;
                 Destroy(gameObject);
             }
