@@ -9,13 +9,30 @@ public class DoorOpener : MonoBehaviour
     public Animator fader;
     public AudioSource sound;
 
+    private UIInteractionObjectUser uiInteractionObjectUser;
+
+    public void Start()
+    {
+        uiInteractionObjectUser = GameObject.FindObjectOfType<UIInteractionObjectUser>();
+    }
+
     public void OnTriggerEnter(Collider other)
     {
         // Display on UI
         if(other.tag == "Player")
         {
             Debug.Log("Press E to open door");
+            uiInteractionObjectUser.ShowInteractionText(UIInteractionObjectUser.typeObjet.porte);
             canGoThrough = true; 
+            
+        }
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            uiInteractionObjectUser.HideInteractionText();
         }
     }
 

@@ -5,15 +5,6 @@ using UnityEngine.Experimental.GlobalIllumination;
 
 public class changeLightingMode : MonoBehaviour
 {
-    public GameObject light;
-    Light spotlightChild;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        spotlightChild = light.GetComponentInChildren<Light>();
-
-    }
 
     // Update is called once per frame
     void Update()
@@ -23,16 +14,16 @@ public class changeLightingMode : MonoBehaviour
         if (scrollInput > 0)
         {
 
-            if (spotlightChild.intensity < 3)
+            if (GameVariablesLight.spotlightChild.intensity < GameVariablesLight.maxIntensity - 1)
             {
-                spotlightChild.intensity++;
+                GameVariablesLight.spotlightChild.intensity++;
             }
         }
         else if (scrollInput < 0)
         {
-            if (spotlightChild.intensity > 0)
+            if (GameVariablesLight.spotlightChild.intensity > 0)
             {
-                spotlightChild.intensity--;
+                GameVariablesLight.spotlightChild.intensity--;
             }
         }
 
