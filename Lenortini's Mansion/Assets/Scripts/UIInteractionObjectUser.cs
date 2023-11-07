@@ -22,7 +22,7 @@ public class UIInteractionObjectUser : MonoBehaviour
 
     public void ShowInteractionText(typeObjet typeO){
         if (typeO == typeObjet.porte){
-            interactiveText.text = "(E) pour ouvrir";
+            interactiveText.text = "(R) pour ouvrir";
         }else if (typeO == typeObjet.batterie){
             interactiveText.text = "(E) pour utiliser";
         }

@@ -5,11 +5,18 @@ using UnityEngine;
 public class BatterySystem : MonoBehaviour
 {
 
-    /*public float timeRemaning3BatteryLevel;
+    public float timeRemaning3BatteryLevel;
     public float timeRemaning2BatteryLevel;
     public float timeRemaning1BatteryLevel;
 
+    public GameObject ui_battery_1;
+    public GameObject ui_battery_2;
+    public GameObject ui_battery_3;
+
     private float timeRemaining = 0.0f;
+    private float timeFlicker = 0.0f;
+    private float flickerInterval = 0.1f;
+    private float flickerIntensity = 0f;
 
     private bool timeDecrementBatteryLvl3 = false;
     private bool timeDecrementBatteryLvl2 = false;
@@ -19,11 +26,36 @@ public class BatterySystem : MonoBehaviour
     private bool decrementedMaxIntensityBatteryLvl2 = false;
     private bool decrementedMaxIntensityBatteryLvl1 = false;
 
-    // Update is called once per frame
+
     void Update()
     {
+        if (GameVariablesLight.maxIntensity == 4)
+        {
+            ui_battery_1.SetActive(true);
+            ui_battery_2.SetActive(true);
+            ui_battery_3.SetActive(true);
+        }
+        else if (GameVariablesLight.maxIntensity == 3)
+        {
+            ui_battery_1.SetActive(true);
+            ui_battery_2.SetActive(true);
+            ui_battery_3.SetActive(false);
+        }
+        else if (GameVariablesLight.maxIntensity == 2)
+        {
+            ui_battery_1.SetActive(true);
+            ui_battery_2.SetActive(false);
+            ui_battery_3.SetActive(false);
+        }
+        else if (GameVariablesLight.maxIntensity == 1)
+        {
+            ui_battery_1.SetActive(false);
+            ui_battery_2.SetActive(false);
+            ui_battery_3.SetActive(false);
+        }
+
         timeRemaining += Time.deltaTime;
-        //Debug.Log(timeRemaining);
+        timeFlicker += Time.deltaTime;
 
         if (timeRemaining > timeRemaning3BatteryLevel && timeRemaining < timeRemaning3BatteryLevel + 0.5f && !timeDecrementBatteryLvl3)
         {
@@ -40,7 +72,6 @@ public class BatterySystem : MonoBehaviour
             GameVariablesLight.maxIntensity = 1;
             timeDecrementBatteryLvl1 = true;
         }
-
 
         if (GameVariablesLight.maxIntensity == 3 && !decrementedMaxIntensityBatteryLvl3)
         {
@@ -70,5 +101,22 @@ public class BatterySystem : MonoBehaviour
             decrementedMaxIntensityBatteryLvl1 = false;
         }
 
-    }*/
+        if (timeFlicker >= flickerInterval)
+        {
+            timeFlicker = 0;
+            FlickerIntensity();
+        }
+    }
+
+    void FlickerIntensity()
+    {
+        if (GameVariablesLight.spotlightChild.intensity > 0)
+        {
+            float randomFactor = Random.Range(0.9f, 1.1f);
+
+            flickerIntensity = GameVariablesLight.spotlightChild.intensity * randomFactor;
+
+            GameVariablesLight.spotlightChild.intensity = flickerIntensity;
+        }
+    }
 }

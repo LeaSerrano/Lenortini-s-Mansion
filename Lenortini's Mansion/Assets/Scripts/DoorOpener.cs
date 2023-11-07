@@ -21,7 +21,7 @@ public class DoorOpener : MonoBehaviour
         // Display on UI
         if(other.tag == "Player")
         {
-            Debug.Log("Press E to open door");
+            Debug.Log("Press R to open door");
             uiInteractionObjectUser.ShowInteractionText(UIInteractionObjectUser.typeObjet.porte);
             canGoThrough = true; 
             
@@ -39,7 +39,7 @@ public class DoorOpener : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(canGoThrough && Input.GetKey("e"))
+        if(canGoThrough && Input.GetKey("r"))
         {
             fader.SetTrigger("Fade");
             sound.Play();
