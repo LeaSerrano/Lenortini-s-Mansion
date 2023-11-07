@@ -24,7 +24,7 @@ public class UIInteractionObjectUser : MonoBehaviour
         if (typeO == typeObjet.porte){
             interactiveText.text = "(R) pour ouvrir";
         }else if (typeO == typeObjet.batterie){
-            interactiveText.text = "(E) pour utiliser";
+            interactiveText.text = "(E) pour récupérer";
         }
         interactiveText.gameObject.SetActive(true);
     }

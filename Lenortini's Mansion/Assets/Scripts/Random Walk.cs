@@ -115,4 +115,10 @@ public class RandomWalk : MonoBehaviour
 
 
     }
+
+    void SetStopped()
+    {
+        ghost.isStopped = true;
+    }
+
 }
