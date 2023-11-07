@@ -3831,6 +3831,18 @@ PrefabInstance:
       propertyPath: ui_battery_3
       value: 
       objectReference: {fileID: 1637462374}
+    - target: {fileID: 7651313151809676956, guid: 11aaea5348574644a9eb4f4504fcce3f, type: 3}
+      propertyPath: timeRemaning1BatteryLevel
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7651313151809676956, guid: 11aaea5348574644a9eb4f4504fcce3f, type: 3}
+      propertyPath: timeRemaning2BatteryLevel
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7651313151809676956, guid: 11aaea5348574644a9eb4f4504fcce3f, type: 3}
+      propertyPath: timeRemaning3BatteryLevel
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

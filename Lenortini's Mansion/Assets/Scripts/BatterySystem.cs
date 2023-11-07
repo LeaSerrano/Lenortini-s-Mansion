@@ -5,15 +5,10 @@ using UnityEngine;
 public class BatterySystem : MonoBehaviour
 {
 
-    public float timeRemaning3BatteryLevel;
-    public float timeRemaning2BatteryLevel;
-    public float timeRemaning1BatteryLevel;
-
     public GameObject ui_battery_1;
     public GameObject ui_battery_2;
     public GameObject ui_battery_3;
 
-    private float timeRemaining = 0.0f;
     private float timeFlicker = 0.0f;
     private float flickerInterval = 0.1f;
     private float flickerIntensity = 0f;
@@ -29,11 +24,6 @@ public class BatterySystem : MonoBehaviour
 
     void Update()
     {
-        if(GameVariablesLight.isDamaging)
-        {
-            GameVariablesLight.maxIntensity -= 1;
-            GameVariablesLight.isDamaging = false;
-        }
 
         if (GameVariablesLight.maxIntensity == 3)
         {
@@ -60,20 +50,20 @@ public class BatterySystem : MonoBehaviour
             ui_battery_3.SetActive(false);
         }
 
-        timeRemaining += Time.deltaTime;
+        GameVariablesLight.timeRemaining += Time.deltaTime;
         timeFlicker += Time.deltaTime;
 
-        if (timeRemaining > timeRemaning3BatteryLevel && timeRemaining < timeRemaning3BatteryLevel + 0.5f && !timeDecrementBatteryLvl3)
+        if (GameVariablesLight.timeRemaining > GameVariablesLight.timeRemaning3BatteryLevel && GameVariablesLight.timeRemaining < GameVariablesLight.timeRemaning3BatteryLevel + 0.5f && !timeDecrementBatteryLvl3)
         {
             GameVariablesLight.maxIntensity = 2;
             timeDecrementBatteryLvl3 = true;
         }
-        else if (timeRemaining > timeRemaning2BatteryLevel && timeRemaining < timeRemaning2BatteryLevel + 0.5f && !timeDecrementBatteryLvl2)
+        else if (GameVariablesLight.timeRemaining > GameVariablesLight.timeRemaning2BatteryLevel && GameVariablesLight.timeRemaining < GameVariablesLight.timeRemaning2BatteryLevel + 0.5f && !timeDecrementBatteryLvl2)
         {
             GameVariablesLight.maxIntensity = 1;
             timeDecrementBatteryLvl2 = true;
         }
-        else if (timeRemaining > timeRemaning1BatteryLevel && timeRemaining < timeRemaning1BatteryLevel + 0.5f && !timeDecrementBatteryLvl1)
+        else if (GameVariablesLight.timeRemaining > GameVariablesLight.timeRemaning1BatteryLevel && GameVariablesLight.timeRemaining < GameVariablesLight.timeRemaning1BatteryLevel + 0.5f && !timeDecrementBatteryLvl1)
         {
             GameVariablesLight.maxIntensity = 0;
             timeDecrementBatteryLvl1 = true;
@@ -98,7 +88,7 @@ public class BatterySystem : MonoBehaviour
         if (GameVariablesLight.isResetTimeNeedeed)
         {
             GameVariablesLight.isResetTimeNeedeed = false;
-            timeRemaining = 0.0f;
+            GameVariablesLight.timeRemaining = 0.0f;
             timeDecrementBatteryLvl3 = false;
             timeDecrementBatteryLvl2 = false;
             timeDecrementBatteryLvl1 = false;

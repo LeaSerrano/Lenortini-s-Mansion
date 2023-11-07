@@ -4,32 +4,55 @@ using UnityEngine;
 
 public class FlashLightRayCaster : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
+    private bool isTheGhostHit = false;
+    private bool shouldDecremented = false;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    private RaycastHit hit;
 
     void FixedUpdate()
     {
-        if(gameObject.GetComponent<Light>().intensity <= 0.0f) return;
-        RaycastHit hit;
-        // Does the ray intersect any objects excluding the player layer
+        isTheGhostHit = false;
+
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 10.0f))
         {
-            if(hit.collider.CompareTag("Ghost"))
+            if (hit.collider.CompareTag("Ghost"))
             {
+                isTheGhostHit = true;
                 hit.transform.gameObject.GetComponent<Animator>().SetTrigger("Killed");
-                GameVariablesLight.isDamaging = true;
             }
-            
-            
-            
+        }
+    }
+
+    void Update()
+    {
+        if (isTheGhostHit && !shouldDecremented)
+        {
+            shouldDecremented = true;
+
+            if (GameVariablesLight.maxIntensity > 0)
+            {
+                GameVariablesLight.maxIntensity--;
+                GameVariablesLight.spotlightChild.intensity = GameVariablesLight.maxIntensity;
+
+                if (GameVariablesLight.maxIntensity == 2)
+                {
+                    GameVariablesLight.timeRemaining = GameVariablesLight.timeRemaning3BatteryLevel;
+                }
+                else if (GameVariablesLight.maxIntensity == 1)
+                {
+                    GameVariablesLight.timeRemaining = GameVariablesLight.timeRemaning2BatteryLevel;
+                }
+                else if (GameVariablesLight.maxIntensity == 0)
+                {
+                    GameVariablesLight.timeRemaining = GameVariablesLight.timeRemaning1BatteryLevel;
+                }
+            }
+        }
+
+        if (!isTheGhostHit)
+        {
+            shouldDecremented = false;
         }
     }
 }
+
