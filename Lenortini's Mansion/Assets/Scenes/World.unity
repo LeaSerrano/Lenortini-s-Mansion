@@ -3892,8 +3892,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3bad544fa1bfdd49bff87303edc141c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 0
-  maxHealth: 0
+  currentHealth: 3
+  maxHealth: 3
   blurMaterial: {fileID: 0}
 --- !u!1001 &628029399
 PrefabInstance:
