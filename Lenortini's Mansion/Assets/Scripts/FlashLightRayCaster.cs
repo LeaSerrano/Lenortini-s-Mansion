@@ -25,7 +25,7 @@ public class FlashLightRayCaster : MonoBehaviour
             if(hit.collider.CompareTag("Ghost"))
             {
                 hit.transform.gameObject.GetComponent<Animator>().SetTrigger("Killed");
-                GameVariablesLight.maxIntensity--;
+                GameVariablesLight.isDamaging = true;
             }
             
             

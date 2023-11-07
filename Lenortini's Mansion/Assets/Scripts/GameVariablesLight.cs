@@ -9,4 +9,5 @@ public static class GameVariablesLight
     public static bool isResetTimeNeedeed = false;
     public static GameObject light = GameObject.Find("flashLight 1");
     public static Light spotlightChild = light.GetComponentInChildren<Light>();
+    public static bool isDamaging = false;
 }

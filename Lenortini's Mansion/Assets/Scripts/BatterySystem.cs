@@ -29,6 +29,12 @@ public class BatterySystem : MonoBehaviour
 
     void Update()
     {
+        if(GameVariablesLight.isDamaging)
+        {
+            GameVariablesLight.maxIntensity -= 1;
+            GameVariablesLight.isDamaging = false;
+        }
+
         if (GameVariablesLight.maxIntensity == 3)
         {
             ui_battery_1.SetActive(true);
