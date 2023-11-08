@@ -51,7 +51,7 @@ public class RandomWalk : MonoBehaviour
         if (!isPaused) // si le fantome n'est pas statique
         {
             hitting();
-            if (ghost.remainingDistance <= 0.1f) // si distance bien effectuée
+            if (ghost.remainingDistance <= 0.2f) // si distance bien effectuée
             {
                 isPaused = true; // fantome statique
                 pauseTimer = Random.Range(minPauseTime, maxPauseTime); // set temps de pause
