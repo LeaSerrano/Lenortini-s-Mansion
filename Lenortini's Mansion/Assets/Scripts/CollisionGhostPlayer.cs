@@ -12,6 +12,7 @@ public class CollisionGhostPlayer : MonoBehaviour
     private GameObject player;
     public float cooldownDuration = 2.0f;
     private float lastCollisionTime;
+    public bool isDead = false;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +29,7 @@ public class CollisionGhostPlayer : MonoBehaviour
 
     void OnTriggerEnter(Collider other){
         if(other.CompareTag("Player")) {
-            if (Time.time - lastCollisionTime >= cooldownDuration)
+            if ((Time.time - lastCollisionTime >= cooldownDuration) && !isDead)
             {
                 PlayerHealth.Instance.Hurt(1);
                 lastCollisionTime = Time.time;

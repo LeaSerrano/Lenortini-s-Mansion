@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
 
-    public static int enemyNumber = 2;
+    public static int enemyNumber = 3;
+    public static bool isInTutorial = true;
 
     void Awake()
     {
@@ -26,16 +27,23 @@ public class GameManager : MonoBehaviour
 
     public static void LoadVictory()
     {
+        Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadScene("Victory");
     }
 
     public static void LoadDefeat()
     {
+        Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadScene("Defeat");
     }
 
     public static void LoadGame()
     {
         SceneManager.LoadScene("World");
+    }
+
+    public static void LoadStory()
+    {
+        SceneManager.LoadScene("Story");
     }
 }

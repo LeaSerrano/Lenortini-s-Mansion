@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class GameVariablesLight
 {
-    public static int maxIntensity = 3;
+    public static int maxIntensity = 2;
     public static bool isABatteryGrab = false;
     public static bool isResetTimeNeedeed = false;
     public static GameObject light = GameObject.Find("flashLight 1");

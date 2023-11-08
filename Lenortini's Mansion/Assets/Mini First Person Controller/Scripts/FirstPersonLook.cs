@@ -31,6 +31,7 @@ public class FirstPersonLook : MonoBehaviour
         frameVelocity = Vector2.Lerp(frameVelocity, rawFrameVelocity, 1 / smoothing);
         velocity += frameVelocity;
         velocity.y = Mathf.Clamp(velocity.y, -90, 90);
+        if(velocity.y != 0.0f || velocity.x != 0.0f) TutorialManager.hasMovedCamera = true;
 
         // Rotate camera up-down and controller left-right from velocity.
         transform.localRotation = Quaternion.AngleAxis(-velocity.y, Vector3.right);

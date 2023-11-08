@@ -34,7 +34,9 @@ public class PlayerHealth : MonoBehaviour
     private void CheckHealth()
     {
         if (currentHealth <= 0)
-            Debug.Log("Défaite");
+        {
+            GameManager.LoadDefeat();
+        }
         // defaite (TO DO)
     }
 

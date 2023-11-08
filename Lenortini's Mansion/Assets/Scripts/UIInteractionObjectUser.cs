@@ -9,7 +9,8 @@ public class UIInteractionObjectUser : MonoBehaviour
     TMP_Text interactiveText;
     public enum typeObjet{
             porte,
-            batterie
+            batterie,
+            batterie_pleine
         }
     public float distance = 2f; 
     
@@ -24,7 +25,10 @@ public class UIInteractionObjectUser : MonoBehaviour
         if (typeO == typeObjet.porte){
             interactiveText.text = "(R) pour ouvrir";
         }else if (typeO == typeObjet.batterie){
-            interactiveText.text = "(E) pour récupérer";
+            interactiveText.text = "(E) pour prendre";
+        }else if(typeO == typeObjet.batterie_pleine)
+        {
+            interactiveText.text = "La Batterie est pleine ! ";
         }
         interactiveText.gameObject.SetActive(true);
     }

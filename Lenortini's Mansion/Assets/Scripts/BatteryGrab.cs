@@ -16,7 +16,6 @@ public class BatteryGrab : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            Debug.Log("Press E to get Battery");
             uiInteractionObjectUser.ShowInteractionText(UIInteractionObjectUser.typeObjet.batterie);
             isInCollider = true;
         }
@@ -40,10 +39,11 @@ public class BatteryGrab : MonoBehaviour
                 GameVariablesLight.maxIntensity = 3;
                 GameVariablesLight.isResetTimeNeedeed = true;
                 Destroy(gameObject);
+                uiInteractionObjectUser.HideInteractionText();
             }
             else
             {
-                Debug.Log("The battery is full");
+                uiInteractionObjectUser.ShowInteractionText(UIInteractionObjectUser.typeObjet.batterie_pleine);
             }
 
             isInCollider = false;

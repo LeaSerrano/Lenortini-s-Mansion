@@ -14,6 +14,7 @@ public class FinalDoorController : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
+        Debug.Log(GameManager.enemyNumber + "enemies remaining");
         // Display on UI
         if(GameManager.enemyNumber <= 0 && other.tag == "Player")
         {

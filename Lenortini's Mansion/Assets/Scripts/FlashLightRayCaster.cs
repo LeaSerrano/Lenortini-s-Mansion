@@ -13,13 +13,13 @@ public class FlashLightRayCaster : MonoBehaviour
     {
         isTheGhostHit = false;
 
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 10.0f))
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 5.0f))
         {
             if (hit.collider.CompareTag("Ghost") && GameVariablesLight.spotlightChild.intensity>0)
             {
                 isTheGhostHit = true;
                 hit.transform.gameObject.GetComponent<Animator>().SetTrigger("Killed");
-                GameManager.enemyNumber --;
+                hit.transform.gameObject.GetComponent<CollisionGhostPlayer>().isDead = true;
             }
         }
     }
@@ -48,6 +48,7 @@ public class FlashLightRayCaster : MonoBehaviour
                     GameVariablesLight.timeRemaining = GameVariablesLight.timeRemaning1BatteryLevel;
                 }
             }
+            GameManager.enemyNumber --;
         }
 
         if (!isTheGhostHit)
