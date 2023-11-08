@@ -12,6 +12,7 @@ public class DoorTeleporter : MonoBehaviour
 
     void TeleportPlayer()
     {
+        Debug.Log(gameObject);
         if(!isIn) playerTransform.position = inSpawn.position;
         else playerTransform.position = outSpawn.position;
         Debug.Log(isIn? "Going Out" : "Going In");

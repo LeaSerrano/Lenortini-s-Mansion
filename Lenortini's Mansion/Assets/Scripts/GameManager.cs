@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
 
     public static void LoadGame()
     {
-        SceneManager.LoadScene("World");
+        SceneManager.LoadScene("WorldV2");
     }
 
     public static void LoadStory()
