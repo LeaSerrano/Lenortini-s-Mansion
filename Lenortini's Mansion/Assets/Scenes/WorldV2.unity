@@ -980,6 +980,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fader: {fileID: 2143043949}
   sound: {fileID: 739971936}
+  inSpawn: {fileID: 1547648824}
+  outSpawn: {fileID: 2045136323}
+  unlockSound: {fileID: 8300000, guid: bb1f85f4f9a283c45b8b2b9fd69e8b23, type: 3}
+  openSound: {fileID: 8300000, guid: 202ceda815daff545ab7b17c2b6a26f4, type: 3}
+  isLocked: 1
+  nbEnnemyKilledToUnlock: 2
 --- !u!65 &113394527
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2455,6 +2461,18 @@ PrefabInstance:
     - target: {fileID: 4829996609633728, guid: b00aa4d025531d4408b9728c718a5648, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243490253968562750, guid: b00aa4d025531d4408b9728c718a5648, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243490253968562750, guid: b00aa4d025531d4408b9728c718a5648, type: 3}
+      propertyPath: m_SpotAngle
+      value: 37
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243490253968562750, guid: b00aa4d025531d4408b9728c718a5648, type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4719660525439888676, guid: b00aa4d025531d4408b9728c718a5648, type: 3}
       propertyPath: actualBattery
@@ -4932,7 +4950,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 10.09
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -6480,9 +6498,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 698328cb89c262d47803daf585012ed8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1123895914}
-    - targetCorrespondingSourceObject: {fileID: 100000, guid: 698328cb89c262d47803daf585012ed8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1123895917}
   m_SourcePrefab: {fileID: 100100000, guid: 698328cb89c262d47803daf585012ed8, type: 3}
 --- !u!1001 &643037146
 PrefabInstance:
@@ -6954,7 +6969,6 @@ GameObject:
   - component: {fileID: 673977317}
   - component: {fileID: 673977316}
   - component: {fileID: 673977315}
-  - component: {fileID: 673977318}
   m_Layer: 0
   m_Name: floor
   m_TagString: Untagged
@@ -7049,37 +7063,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 673977313}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &673977318
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 673977313}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AgentTypeID: -1372625422
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.1
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 7f30cce8e6628ba47b6595699fec07fd, type: 2}
-  m_BuildHeightMesh: 0
 --- !u!1001 &679875194
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7549,7 +7532,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 15.5
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -7585,7 +7568,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -7813,6 +7796,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fader: {fileID: 2143043949}
   sound: {fileID: 520974393}
+  inSpawn: {fileID: 621174601}
+  outSpawn: {fileID: 882274058}
+  unlockSound: {fileID: 8300000, guid: bb1f85f4f9a283c45b8b2b9fd69e8b23, type: 3}
+  openSound: {fileID: 8300000, guid: 202ceda815daff545ab7b17c2b6a26f4, type: 3}
+  isLocked: 0
+  nbEnnemyKilledToUnlock: 0
 --- !u!65 &741672361
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8016,7 +8005,6 @@ GameObject:
   - component: {fileID: 759682357}
   - component: {fileID: 759682356}
   - component: {fileID: 759682355}
-  - component: {fileID: 759682358}
   m_Layer: 0
   m_Name: floor
   m_TagString: Untagged
@@ -8111,37 +8099,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 759682353}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &759682358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 759682353}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AgentTypeID: -1372625422
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.1
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 84a3bdf832b819e4d80978b20a827f19, type: 2}
-  m_BuildHeightMesh: 1
 --- !u!1001 &761345322
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10797,6 +10754,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fader: {fileID: 2143043949}
   sound: {fileID: 1737606098}
+  inSpawn: {fileID: 182975823}
+  outSpawn: {fileID: 782656811}
+  unlockSound: {fileID: 8300000, guid: bb1f85f4f9a283c45b8b2b9fd69e8b23, type: 3}
+  openSound: {fileID: 8300000, guid: 202ceda815daff545ab7b17c2b6a26f4, type: 3}
+  isLocked: 0
+  nbEnnemyKilledToUnlock: 0
 --- !u!4 &1027518480 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2444288040839281294, guid: fe38739420c917b45aa10d806da6344b, type: 3}
@@ -11536,37 +11499,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 698328cb89c262d47803daf585012ed8, type: 3}
---- !u!114 &1123895917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1123895910}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AgentTypeID: -1372625422
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.1
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: c620925bf45d9574da0695ecc6ff1d53, type: 2}
-  m_BuildHeightMesh: 0
 --- !u!1001 &1124071732
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12353,7 +12285,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.1
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 47509371bbb98894dab43e94832b1d2a, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: a99528e764da3db438553a4129ab81cc, type: 2}
   m_BuildHeightMesh: 0
 --- !u!4 &1180036299
 Transform:
@@ -14072,7 +14004,6 @@ GameObject:
   - component: {fileID: 1314054344}
   - component: {fileID: 1314054343}
   - component: {fileID: 1314054342}
-  - component: {fileID: 1314054345}
   m_Layer: 0
   m_Name: Floor_DiningRoom
   m_TagString: Untagged
@@ -14167,37 +14098,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1314054340}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1314054345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1314054340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 856fa56856245b14983d6b34951840f6, type: 2}
-  m_BuildHeightMesh: 0
 --- !u!1001 &1319416725
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14356,7 +14256,6 @@ GameObject:
   - component: {fileID: 1368533480}
   - component: {fileID: 1368533479}
   - component: {fileID: 1368533478}
-  - component: {fileID: 1368533477}
   m_Layer: 0
   m_Name: floor (1)
   m_TagString: Untagged
@@ -14379,37 +14278,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 996268565}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1368533477
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1368533475}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AgentTypeID: -1372625422
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.1
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: e801f248c8a02944dbe5742d639521ec, type: 2}
-  m_BuildHeightMesh: 0
 --- !u!64 &1368533478
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -14826,7 +14694,7 @@ Transform:
   m_GameObject: {fileID: 1418759710}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.04, y: 0, z: 0}
+  m_LocalPosition: {x: 1.04, y: 0, z: -2.679}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16423,7 +16291,6 @@ GameObject:
   - component: {fileID: 1601547108}
   - component: {fileID: 1601547107}
   - component: {fileID: 1601547106}
-  - component: {fileID: 1601547109}
   m_Layer: 0
   m_Name: floor
   m_TagString: Untagged
@@ -16518,37 +16385,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1601547104}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1601547109
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1601547104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AgentTypeID: -1372625422
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.1
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 4ddc49e3cb3ca0c48bbf316bb57bcbc2, type: 2}
-  m_BuildHeightMesh: 0
 --- !u!1001 &1607037804
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20207,6 +20043,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1842708414955614, guid: 141a3c088bae48f42a579375904a411c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2047432172}
+    - targetCorrespondingSourceObject: {fileID: 1842708414955614, guid: 141a3c088bae48f42a579375904a411c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2047432176}
   m_SourcePrefab: {fileID: 100100000, guid: 141a3c088bae48f42a579375904a411c, type: 3}
 --- !u!4 &2047432171 stripped
 Transform:
@@ -20246,6 +20085,102 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.052126, y: 1.8427, z: 0.44228116}
   m_Center: {x: -0.36496407, y: 0.92855, z: 0.32303694}
+--- !u!82 &2047432176
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479574095}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: bb1f85f4f9a283c45b8b2b9fd69e8b23, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 26.63
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &2050301119 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4702546749944296, guid: fa833c84b0dbee34b84e6427f78feff3, type: 3}
@@ -21194,7 +21129,6 @@ GameObject:
   - component: {fileID: 2128376139}
   - component: {fileID: 2128376138}
   - component: {fileID: 2128376137}
-  - component: {fileID: 2128376136}
   m_Layer: 0
   m_Name: floor
   m_TagString: Untagged
@@ -21217,37 +21151,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 828577434}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2128376136
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2128376134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AgentTypeID: -1372625422
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.1
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: a09b6bdc8a9293a41a395696935c4a0d, type: 2}
-  m_BuildHeightMesh: 0
 --- !u!64 &2128376137
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -21496,8 +21399,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 614441530}
-  inSpawn: {fileID: 182975823}
-  outSpawn: {fileID: 782656811}
+  inSpawn: {fileID: 0}
+  outSpawn: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

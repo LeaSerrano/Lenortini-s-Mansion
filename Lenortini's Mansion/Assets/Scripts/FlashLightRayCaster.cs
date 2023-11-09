@@ -48,7 +48,6 @@ public class FlashLightRayCaster : MonoBehaviour
                     GameVariablesLight.timeRemaining = GameVariablesLight.timeRemaning1BatteryLevel;
                 }
             }
-            GameManager.enemyNumber --;
         }
 
         if (!isTheGhostHit)

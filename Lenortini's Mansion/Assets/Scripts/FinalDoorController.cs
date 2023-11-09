@@ -14,14 +14,24 @@ public class FinalDoorController : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log(GameManager.enemyNumber + "enemies remaining");
+        
         // Display on UI
-        if(GameManager.enemyNumber <= 0 && other.tag == "Player")
+        if(GameManager.Won())
         {
-            Debug.Log("Press R to open door");
-            uiInteractionObjectUser.ShowInteractionText(UIInteractionObjectUser.typeObjet.porte);
-            canGoThrough = true; 
-            
+            if(other.tag == "Player")
+            {
+                GetComponent<AudioSource>().Play();
+                uiInteractionObjectUser.ShowInteractionText(UIInteractionObjectUser.typeObjet.porte);
+                canGoThrough = true; 
+                
+            }
+        }
+        else
+        {
+            if(other.tag == "Player")
+            {
+                uiInteractionObjectUser.ShowInteractionText(UIInteractionObjectUser.typeObjet.porte_locked); 
+            }
         }
     }
 

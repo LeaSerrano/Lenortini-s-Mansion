@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
 
-    public static int enemyNumber = 3;
+    public static int enemyNumber = 6;
+    public static int ennemyKilled = 0;
     public static bool isInTutorial = true;
 
     void Awake()
@@ -23,6 +24,12 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+    }
+
+    public static bool Won()
+    {
+        Debug.Log(enemyNumber - ennemyKilled + "ennemies remaining");
+        return ennemyKilled == enemyNumber;
     }
 
     public static void LoadVictory()

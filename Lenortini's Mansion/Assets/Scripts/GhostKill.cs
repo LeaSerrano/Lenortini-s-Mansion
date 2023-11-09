@@ -7,7 +7,7 @@ public class GhostKill : MonoBehaviour
     public AudioClip diesound;
     void Die()
     {
-        
+        GameManager.ennemyKilled ++;
 
         Destroy(gameObject);
     }
