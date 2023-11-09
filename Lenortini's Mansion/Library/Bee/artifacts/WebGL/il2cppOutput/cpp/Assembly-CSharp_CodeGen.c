@@ -100,6 +100,7 @@ extern void FlashLightRayCaster__ctor_m136C1437A410205FEA6F7832BFCFA43E20A3F22D 
 extern void GameManager_Awake_m4B6E8E2AF58C95C9A2A0C4637A34AE0892CB637F (void);
 extern void GameManager_Start_m87A71D65F3171A58DBDDBFB03832ADA65643D0E2 (void);
 extern void GameManager_Update_m7F29D8E933B8D21D2E67507979C0F12ACF87BB41 (void);
+extern void GameManager_Won_m0E93E390F30FE518E12AA018B14B6046D0DF02F6 (void);
 extern void GameManager_LoadVictory_m5C452FE30E2C2DD6611C66094B32C83926506573 (void);
 extern void GameManager_LoadDefeat_mFB1B210083A91B36C5743B616F8B50B567A377F6 (void);
 extern void GameManager_LoadGame_m02FFA7FC70051B5B28D0C48987E9FE1E179C96A4 (void);
@@ -148,6 +149,7 @@ extern void TutorialManager__ctor_m5DF15FACAE927F11F4CD3E6162A8FEE01B406E16 (voi
 extern void UIButtonsController_OnQuitClicked_mFCCCB7A57666F47156A6763BCAFB72EDD7AFB271 (void);
 extern void UIButtonsController_OnPlayClicked_mA16AA517F6094ED18CB090FCD8364CC719E8E041 (void);
 extern void UIButtonsController_OnReviewClicked_m34DF5ABB8AA57FFB9BD8AC71B1B2D1BD61823343 (void);
+extern void UIButtonsController_OnSkipClicked_m854C1FE682FB4C8A10F2DE687F6DE37EA264AEC3 (void);
 extern void UIButtonsController__ctor_mD9BC397AAEFBD79F0B1BB048D35FDC1E4C317E08 (void);
 extern void UIInteractionObjectUser_Start_mCA98AF9F16E3AB563E2ADED3354682B375DBA238 (void);
 extern void UIInteractionObjectUser_ShowInteractionText_m3A7E706B4994A303EB69D9509215F2148D84653A (void);
@@ -469,7 +471,7 @@ extern void ExampleScript_LowHealth__ctor_mCB758C38A048A7513217D65D0C169D91C97CE
 extern void Demo_Start_m6CF16AF1E59799D3769497DB1440113D539DE9D5 (void);
 extern void Demo_OnGUI_mAC80B6AB1F5C59EA509CCA08D627DB9632AB9E94 (void);
 extern void Demo__ctor_m4F70499B189AC16E033D429F76A33CCD42BE6DA3 (void);
-static Il2CppMethodPointer s_methodPointers[457] = 
+static Il2CppMethodPointer s_methodPointers[459] = 
 {
 	Crouch_get_IsCrouched_m8021AD022A7B374B3B874ADC220EF7C450E8953D,
 	Crouch_set_IsCrouched_m0E68FE1FCB4B9AB458FDB6ED63274E3E18500DEF,
@@ -559,6 +561,7 @@ static Il2CppMethodPointer s_methodPointers[457] =
 	GameManager_Awake_m4B6E8E2AF58C95C9A2A0C4637A34AE0892CB637F,
 	GameManager_Start_m87A71D65F3171A58DBDDBFB03832ADA65643D0E2,
 	GameManager_Update_m7F29D8E933B8D21D2E67507979C0F12ACF87BB41,
+	GameManager_Won_m0E93E390F30FE518E12AA018B14B6046D0DF02F6,
 	GameManager_LoadVictory_m5C452FE30E2C2DD6611C66094B32C83926506573,
 	GameManager_LoadDefeat_mFB1B210083A91B36C5743B616F8B50B567A377F6,
 	GameManager_LoadGame_m02FFA7FC70051B5B28D0C48987E9FE1E179C96A4,
@@ -607,6 +610,7 @@ static Il2CppMethodPointer s_methodPointers[457] =
 	UIButtonsController_OnQuitClicked_mFCCCB7A57666F47156A6763BCAFB72EDD7AFB271,
 	UIButtonsController_OnPlayClicked_mA16AA517F6094ED18CB090FCD8364CC719E8E041,
 	UIButtonsController_OnReviewClicked_m34DF5ABB8AA57FFB9BD8AC71B1B2D1BD61823343,
+	UIButtonsController_OnSkipClicked_m854C1FE682FB4C8A10F2DE687F6DE37EA264AEC3,
 	UIButtonsController__ctor_mD9BC397AAEFBD79F0B1BB048D35FDC1E4C317E08,
 	UIInteractionObjectUser_Start_mCA98AF9F16E3AB563E2ADED3354682B375DBA238,
 	UIInteractionObjectUser_ShowInteractionText_m3A7E706B4994A303EB69D9509215F2148D84653A,
@@ -929,7 +933,7 @@ static Il2CppMethodPointer s_methodPointers[457] =
 	Demo_OnGUI_mAC80B6AB1F5C59EA509CCA08D627DB9632AB9E94,
 	Demo__ctor_m4F70499B189AC16E033D429F76A33CCD42BE6DA3,
 };
-static const int32_t s_InvokerIndices[457] = 
+static const int32_t s_InvokerIndices[459] = 
 {
 	4622,
 	3752,
@@ -1019,6 +1023,7 @@ static const int32_t s_InvokerIndices[457] =
 	4805,
 	4805,
 	4805,
+	7060,
 	7111,
 	7111,
 	7111,
@@ -1052,6 +1057,7 @@ static const int32_t s_InvokerIndices[457] =
 	4701,
 	4805,
 	4701,
+	4805,
 	4805,
 	4805,
 	4805,
@@ -1393,7 +1399,7 @@ IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
 {
 	"Assembly-CSharp.dll",
-	457,
+	459,
 	s_methodPointers,
 	0,
 	NULL,

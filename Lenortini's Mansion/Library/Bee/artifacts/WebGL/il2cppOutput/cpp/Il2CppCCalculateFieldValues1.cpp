@@ -13916,7 +13916,13 @@ struct DoorOpener_t12E95779CB0E23F175B8590725A65305ABD4CDCC  : public MonoBehavi
 	bool ___canGoThrough;
 	Animator_t8A52E42AE54F76681838FE9E632683EF3952E883* ___fader;
 	AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* ___sound;
+	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___inSpawn;
+	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___outSpawn;
+	AudioClip_t5D272C4EB4F2D3ED49F1C346DEA373CF6D585F20* ___unlockSound;
+	AudioClip_t5D272C4EB4F2D3ED49F1C346DEA373CF6D585F20* ___openSound;
 	UIInteractionObjectUser_tF37627BB222F834FB2F2376A04FDE200B762A785* ___uiInteractionObjectUser;
+	bool ___isLocked;
+	int32_t ___nbEnnemyKilledToUnlock;
 };
 struct DoorTeleporter_tF42420AFF7CCF756BDFE1888B716E0F650E9CF39  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
@@ -15950,6 +15956,7 @@ struct SpriteAsset_t1D3CF1D9DC350A4690CB09DE228A8B59F2F02313_StaticFields
 struct GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6_StaticFields
 {
 	int32_t ___enemyNumber;
+	int32_t ___ennemyKilled;
 	bool ___isInTutorial;
 };
 struct HealthUIController_tB9C664D219EC4F5D9CDA25AB7A46340B43AB805D_StaticFields
@@ -17198,9 +17205,9 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3655[12] =
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3657[5] = 
 {
 	static_cast<int32_t>(offsetof(CollisionGhostPlayer_t39C109EA314EA24CE02B2C0779E85C33CEC29F88, ___ghost)),static_cast<int32_t>(offsetof(CollisionGhostPlayer_t39C109EA314EA24CE02B2C0779E85C33CEC29F88, ___player)),static_cast<int32_t>(offsetof(CollisionGhostPlayer_t39C109EA314EA24CE02B2C0779E85C33CEC29F88, ___cooldownDuration)),static_cast<int32_t>(offsetof(CollisionGhostPlayer_t39C109EA314EA24CE02B2C0779E85C33CEC29F88, ___lastCollisionTime)),static_cast<int32_t>(offsetof(CollisionGhostPlayer_t39C109EA314EA24CE02B2C0779E85C33CEC29F88, ___isDead)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3658[4] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3658[10] = 
 {
-	static_cast<int32_t>(offsetof(DoorOpener_t12E95779CB0E23F175B8590725A65305ABD4CDCC, ___canGoThrough)),static_cast<int32_t>(offsetof(DoorOpener_t12E95779CB0E23F175B8590725A65305ABD4CDCC, ___fader)),static_cast<int32_t>(offsetof(DoorOpener_t12E95779CB0E23F175B8590725A65305ABD4CDCC, ___sound)),static_cast<int32_t>(offsetof(DoorOpener_t12E95779CB0E23F175B8590725A65305ABD4CDCC, ___uiInteractionObjectUser)),};
+	static_cast<int32_t>(offsetof(DoorOpener_t12E95779CB0E23F175B8590725A65305ABD4CDCC, ___canGoThrough)),static_cast<int32_t>(offsetof(DoorOpener_t12E95779CB0E23F175B8590725A65305ABD4CDCC, ___fader)),static_cast<int32_t>(offsetof(DoorOpener_t12E95779CB0E23F175B8590725A65305ABD4CDCC, ___sound)),static_cast<int32_t>(offsetof(DoorOpener_t12E95779CB0E23F175B8590725A65305ABD4CDCC, ___inSpawn)),static_cast<int32_t>(offsetof(DoorOpener_t12E95779CB0E23F175B8590725A65305ABD4CDCC, ___outSpawn)),static_cast<int32_t>(offsetof(DoorOpener_t12E95779CB0E23F175B8590725A65305ABD4CDCC, ___unlockSound)),static_cast<int32_t>(offsetof(DoorOpener_t12E95779CB0E23F175B8590725A65305ABD4CDCC, ___openSound)),static_cast<int32_t>(offsetof(DoorOpener_t12E95779CB0E23F175B8590725A65305ABD4CDCC, ___uiInteractionObjectUser)),static_cast<int32_t>(offsetof(DoorOpener_t12E95779CB0E23F175B8590725A65305ABD4CDCC, ___isLocked)),static_cast<int32_t>(offsetof(DoorOpener_t12E95779CB0E23F175B8590725A65305ABD4CDCC, ___nbEnnemyKilledToUnlock)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3659[4] = 
 {
 	static_cast<int32_t>(offsetof(DoorTeleporter_tF42420AFF7CCF756BDFE1888B716E0F650E9CF39, ___playerTransform)),static_cast<int32_t>(offsetof(DoorTeleporter_tF42420AFF7CCF756BDFE1888B716E0F650E9CF39, ___inSpawn)),static_cast<int32_t>(offsetof(DoorTeleporter_tF42420AFF7CCF756BDFE1888B716E0F650E9CF39, ___outSpawn)),static_cast<int32_t>(offsetof(DoorTeleporter_tF42420AFF7CCF756BDFE1888B716E0F650E9CF39, ___isIn)),};
@@ -17210,9 +17217,9 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3660[2] =
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3661[3] = 
 {
 	static_cast<int32_t>(offsetof(FlashLightRayCaster_tE07716A818514FCCA07CD5DDFB23AB40E1BD7398, ___isTheGhostHit)),static_cast<int32_t>(offsetof(FlashLightRayCaster_tE07716A818514FCCA07CD5DDFB23AB40E1BD7398, ___shouldDecremented)),static_cast<int32_t>(offsetof(FlashLightRayCaster_tE07716A818514FCCA07CD5DDFB23AB40E1BD7398, ___hit)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3662[2] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3662[3] = 
 {
-	static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6_StaticFields, ___enemyNumber)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6_StaticFields, ___isInTutorial)),};
+	static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6_StaticFields, ___enemyNumber)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6_StaticFields, ___ennemyKilled)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6_StaticFields, ___isInTutorial)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3663[9] = 
 {
 	static_cast<int32_t>(offsetof(GameVariablesLight_t94FBF0260D7022FDDA13CD3B6E2527080D844B30_StaticFields, ___maxIntensity)),static_cast<int32_t>(offsetof(GameVariablesLight_t94FBF0260D7022FDDA13CD3B6E2527080D844B30_StaticFields, ___isABatteryGrab)),static_cast<int32_t>(offsetof(GameVariablesLight_t94FBF0260D7022FDDA13CD3B6E2527080D844B30_StaticFields, ___isResetTimeNeedeed)),static_cast<int32_t>(offsetof(GameVariablesLight_t94FBF0260D7022FDDA13CD3B6E2527080D844B30_StaticFields, ___light)),static_cast<int32_t>(offsetof(GameVariablesLight_t94FBF0260D7022FDDA13CD3B6E2527080D844B30_StaticFields, ___spotlightChild)),static_cast<int32_t>(offsetof(GameVariablesLight_t94FBF0260D7022FDDA13CD3B6E2527080D844B30_StaticFields, ___timeRemaining)),static_cast<int32_t>(offsetof(GameVariablesLight_t94FBF0260D7022FDDA13CD3B6E2527080D844B30_StaticFields, ___timeRemaning3BatteryLevel)),static_cast<int32_t>(offsetof(GameVariablesLight_t94FBF0260D7022FDDA13CD3B6E2527080D844B30_StaticFields, ___timeRemaning2BatteryLevel)),static_cast<int32_t>(offsetof(GameVariablesLight_t94FBF0260D7022FDDA13CD3B6E2527080D844B30_StaticFields, ___timeRemaning1BatteryLevel)),};
@@ -17237,9 +17244,9 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3669[15] =
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3671[5] = 
 {
 	static_cast<int32_t>(offsetof(TutorialManager_tA517EF826FE03300C6A8ED492158E82A0E210CCF_StaticFields, ___hasMovedCamera)),static_cast<int32_t>(offsetof(TutorialManager_tA517EF826FE03300C6A8ED492158E82A0E210CCF_StaticFields, ___hasMoved)),static_cast<int32_t>(offsetof(TutorialManager_tA517EF826FE03300C6A8ED492158E82A0E210CCF, ___mouse)),static_cast<int32_t>(offsetof(TutorialManager_tA517EF826FE03300C6A8ED492158E82A0E210CCF, ___keyboard)),static_cast<int32_t>(offsetof(TutorialManager_tA517EF826FE03300C6A8ED492158E82A0E210CCF, ___isTutorialOver)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3673[4] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3673[5] = 
 {
-	static_cast<int32_t>(sizeof(RuntimeObject)),0,0,0,};
+	static_cast<int32_t>(sizeof(RuntimeObject)),0,0,0,0,};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3674[2] = 
 {
 	static_cast<int32_t>(offsetof(UIInteractionObjectUser_tF37627BB222F834FB2F2376A04FDE200B762A785, ___interactiveText)),static_cast<int32_t>(offsetof(UIInteractionObjectUser_tF37627BB222F834FB2F2376A04FDE200B762A785, ___distance)),};
