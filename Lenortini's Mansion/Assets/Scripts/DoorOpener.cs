@@ -30,7 +30,7 @@ public class DoorOpener : MonoBehaviour
         if(other.tag == "Player")
         {
             Debug.Log("Press R to open door");
-            uiInteractionObjectUser.ShowInteractionText(isLocked? UIInteractionObjectUser.typeObjet.porte_locked : UIInteractionObjectUser.typeObjet.porte);
+            uiInteractionObjectUser.ShowInteractionText(isLocked? UIInteractionObjectUser.typeObjet.porte_locked : UIInteractionObjectUser.typeObjet.porte, nbEnnemyKilledToUnlock - GameManager.ennemyKilled);
             canGoThrough = !isLocked; 
             
         }

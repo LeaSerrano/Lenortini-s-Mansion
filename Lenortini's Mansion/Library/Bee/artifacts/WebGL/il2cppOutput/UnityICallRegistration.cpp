@@ -402,6 +402,10 @@ void RegisterAllStrippedInternalCalls()
 		void Register_UnityEngine_AudioSource_PlayHelper();
 		Register_UnityEngine_AudioSource_PlayHelper();
 
+		//System.Void UnityEngine.AudioSource::PlayOneShotHelper(UnityEngine.AudioSource,UnityEngine.AudioClip,System.Single)
+		void Register_UnityEngine_AudioSource_PlayOneShotHelper();
+		Register_UnityEngine_AudioSource_PlayOneShotHelper();
+
 		//System.Void UnityEngine.AudioSource::Stop(System.Boolean)
 		void Register_UnityEngine_AudioSource_Stop();
 		Register_UnityEngine_AudioSource_Stop();

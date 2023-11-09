@@ -21,7 +21,7 @@ public class FinalDoorController : MonoBehaviour
             if(other.tag == "Player")
             {
                 GetComponent<AudioSource>().Play();
-                uiInteractionObjectUser.ShowInteractionText(UIInteractionObjectUser.typeObjet.porte);
+                uiInteractionObjectUser.ShowInteractionText(UIInteractionObjectUser.typeObjet.porte,0);
                 canGoThrough = true; 
                 
             }
@@ -30,7 +30,7 @@ public class FinalDoorController : MonoBehaviour
         {
             if(other.tag == "Player")
             {
-                uiInteractionObjectUser.ShowInteractionText(UIInteractionObjectUser.typeObjet.porte_locked); 
+                uiInteractionObjectUser.ShowInteractionText(UIInteractionObjectUser.typeObjet.porte_locked, GameManager.enemyNumber - GameManager.ennemyKilled); 
             }
         }
     }

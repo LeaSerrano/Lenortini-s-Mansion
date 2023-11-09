@@ -16,7 +16,7 @@ public class BatteryGrab : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            uiInteractionObjectUser.ShowInteractionText(UIInteractionObjectUser.typeObjet.batterie);
+            uiInteractionObjectUser.ShowInteractionText(UIInteractionObjectUser.typeObjet.batterie, 0);
             isInCollider = true;
         }
     }
@@ -43,7 +43,7 @@ public class BatteryGrab : MonoBehaviour
             }
             else
             {
-                uiInteractionObjectUser.ShowInteractionText(UIInteractionObjectUser.typeObjet.batterie_pleine);
+                uiInteractionObjectUser.ShowInteractionText(UIInteractionObjectUser.typeObjet.batterie_pleine, 0);
             }
 
             isInCollider = false;

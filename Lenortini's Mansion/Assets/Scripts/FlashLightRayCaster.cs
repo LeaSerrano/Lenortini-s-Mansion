@@ -15,7 +15,7 @@ public class FlashLightRayCaster : MonoBehaviour
 
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 5.0f))
         {
-            if (hit.collider.CompareTag("Ghost") && GameVariablesLight.spotlightChild.intensity>0)
+            if (hit.collider.CompareTag("Ghost") && GameVariablesLight.spotlightChild.intensity>0 && !hit.transform.gameObject.GetComponent<CollisionGhostPlayer>().isDead)
             {
                 isTheGhostHit = true;
                 hit.transform.gameObject.GetComponent<Animator>().SetTrigger("Killed");

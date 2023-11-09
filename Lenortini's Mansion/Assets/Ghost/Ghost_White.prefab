@@ -202,8 +202,10 @@ MonoBehaviour:
   moveSpeed: 0.5
   mRange: 25
   minPauseTime: 1
-  maxPauseTime: 5
+  maxPauseTime: 2
   distanceDetection: 10
+  rundownSound: {fileID: 8300000, guid: 526fa508df457764280f7bf591f7fafa, type: 3}
+  idleSound: {fileID: 8300000, guid: 88fc0a3b3c3e7dd4abdf05a2f314beef, type: 3}
 --- !u!195 &3653017573710322078
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -261,6 +263,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c229ece3ea17d4409351398d91021d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cooldownDuration: 2
+  isDead: 0
 --- !u!82 &760818638352875817
 AudioSource:
   m_ObjectHideFlags: 0

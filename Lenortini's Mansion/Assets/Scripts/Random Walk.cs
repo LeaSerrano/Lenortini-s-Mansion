@@ -9,7 +9,7 @@ public class RandomWalk : MonoBehaviour
 
     public float mRange = 25.0f;
     public float minPauseTime = 1.0f;  // Temps minimal d'arrêt.
-    public float maxPauseTime = 5.0f;  // Temps maximal d'arrêt.
+    public float maxPauseTime = 2.0f;  // Temps maximal d'arrêt.
     public float distanceDetection = 50.0f;
 
     private Vector2 lastPos;
@@ -27,6 +27,10 @@ public class RandomWalk : MonoBehaviour
     private bool playerDetected;
     private GameObject player;
 
+    public AudioClip rundownSound;
+    public AudioClip idleSound;
+    private AudioSource audio;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +38,7 @@ public class RandomWalk : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         isPaused = false;
         SetNewRandomDestination();
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -83,7 +88,8 @@ public class RandomWalk : MonoBehaviour
         Vector3 leftDirection = leftAngle * transform.forward;
         Vector3 rightDirection = rightAngle * transform.forward;
 
-        if (Physics.Raycast(transform.position, leftDirection, out hit, distanceDetection) ||Physics.Raycast(transform.position, rightDirection, out hit, distanceDetection) )
+
+        if (Physics.Raycast(transform.position, leftDirection, out hit, distanceDetection) ||Physics.Raycast(transform.position, rightDirection, out hit, distanceDetection) ||  Physics.Raycast(transform.position, transform.forward, out hit, distanceDetection) )
         {
             if (hit.collider.CompareTag("Player") && !activatedHitTimer) // Si le joueur est détecté et que le timer est désactivé
             {
@@ -92,12 +98,14 @@ public class RandomWalk : MonoBehaviour
                 ghost.speed = 3.0f; 
                 isPaused = false; 
                 Debug.Log("Player detected by hit !");
+                audio.PlayOneShot(rundownSound, 1.0f);
                 activatedHitTimer = true; // Activation du hit timer
                 hitTimer = 2.0f; // 2 sec de hit timer
             } else if (!activatedHitTimer) { // Si le joueur n'est pas détecté et le timer est désactivé
                 playerDetected = false;
                 //Debug.Log("Player NOT detected by hit !");
                 ghost.speed = 0.5f; //Remise de la vitesse normale
+
             }
         }
     }

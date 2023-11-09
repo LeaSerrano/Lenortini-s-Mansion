@@ -1,7 +1,5 @@
 ScriptsOnlyBuild:
   usedScripts:
-    Assembly-CSharp-Editor.dll:
-    - ReadmeEditor
     Assembly-CSharp.dll:
     - BatteryGrab
     - BatterySystem
@@ -22,7 +20,6 @@ ScriptsOnlyBuild:
     - LightFlicker
     - PlayerHealth
     - RandomWalk
-    - Readme
     - ScrollTextController
     - TutorialManager
     - UIButtonsController
@@ -67,8 +64,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -162,6 +161,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 89
       Script: {instanceID: 0}
     - Class: 104
@@ -226,6 +229,10 @@ ScriptsOnlyBuild:
     - Class: 74
       Script: {instanceID: 0}
     - Class: 81
+      Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
       Script: {instanceID: 0}
     - Class: 89
       Script: {instanceID: 0}
@@ -302,6 +309,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 89
       Script: {instanceID: 0}
     - Class: 104
@@ -339,7 +350,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9878}
     - Class: 114
-      Script: {instanceID: 34052}
+      Script: {instanceID: 36660}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -378,6 +389,10 @@ ScriptsOnlyBuild:
     - Class: 64
       Script: {instanceID: 0}
     - Class: 81
+      Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
       Script: {instanceID: 0}
     - Class: 89
       Script: {instanceID: 0}
@@ -1540,7 +1555,7 @@ ScriptsOnlyBuild:
     className: Text
   - hash:
       serializedVersion: 2
-      Hash: 7fae1dd2f82dcdd6646db7589b21698b
+      Hash: e87e1787e431039e99cd123c31652c8a
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: RandomWalk

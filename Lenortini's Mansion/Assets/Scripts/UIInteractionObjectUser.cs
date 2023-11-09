@@ -22,7 +22,7 @@ public class UIInteractionObjectUser : MonoBehaviour
     }
 
 
-    public void ShowInteractionText(typeObjet typeO){
+    public void ShowInteractionText(typeObjet typeO, int ennemiesRemaining){
         if (typeO == typeObjet.porte){
             interactiveText.text = "(R) pour ouvrir";
         }else if (typeO == typeObjet.batterie){
@@ -31,7 +31,7 @@ public class UIInteractionObjectUser : MonoBehaviour
             interactiveText.text = "La Batterie est pleine ! ";
         }else if(typeO == typeObjet.porte_locked)
         {
-            interactiveText.text = "Cette porte est verrouilée ";
+            interactiveText.text = "Cette porte est verrouillée \n(il reste " + ennemiesRemaining + " fantômes à éliminer)";
         }
         interactiveText.gameObject.SetActive(true);
     }

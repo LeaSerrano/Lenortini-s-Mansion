@@ -10,7 +10,7 @@ public static class GameVariablesLight
     public static GameObject light = GameObject.Find("flashLight 1");
     public static Light spotlightChild = light.GetComponentInChildren<Light>();
     public static float timeRemaining = 0.0f;
-    public static float timeRemaning3BatteryLevel = 10.0f;
-    public static float timeRemaning2BatteryLevel = 20.0f;
-    public static float timeRemaning1BatteryLevel = 30.0f;
+    public static float timeRemaning3BatteryLevel = 50.0f;
+    public static float timeRemaning2BatteryLevel = 60.0f;
+    public static float timeRemaning1BatteryLevel = 70.0f;
 }

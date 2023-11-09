@@ -131,6 +131,10 @@
           {
             "name": "AudioClip",
             "scenes": [
+              "Assets/Scenes/Defeat.unity",
+              "Assets/Scenes/Story.unity",
+              "Assets/Scenes/Title.unity",
+              "Assets/Scenes/Victory.unity",
               "Assets/Scenes/World.unity",
               "Assets/Scenes/WorldV2.unity"
             ],
@@ -159,6 +163,10 @@
           {
             "name": "AudioSource",
             "scenes": [
+              "Assets/Scenes/Defeat.unity",
+              "Assets/Scenes/Story.unity",
+              "Assets/Scenes/Title.unity",
+              "Assets/Scenes/Victory.unity",
               "Assets/Scenes/World.unity",
               "Assets/Scenes/WorldV2.unity"
             ],
@@ -168,6 +176,10 @@
           {
             "name": "SampleClip",
             "scenes": [
+              "Assets/Scenes/Defeat.unity",
+              "Assets/Scenes/Story.unity",
+              "Assets/Scenes/Title.unity",
+              "Assets/Scenes/Victory.unity",
               "Assets/Scenes/World.unity",
               "Assets/Scenes/WorldV2.unity"
             ],
